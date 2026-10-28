@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizApp.Maui.Views.MainPage"
+             Title="QuizApp">
+
+    <Grid
+        RowDefinitions="2*,*,*"
+        ColumnDefinitions="Auto,*,Auto"
+        Padding="24"
+        RowSpacing="16">
+
+        <ImageButton
+            Grid.Row="0"
+            Grid.Column="0"
+            Source="arrow_left_nav_icon.png"
+            BackgroundColor="Beige"
+            Command="{Binding Path=PreguntaSiguienteCommand}"/>
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="LightGray">
+            <Border.StrokeShape>
+                <RoundRectangle
+                    CornerRadius="10"/>
+            </Border.StrokeShape>
+            <Label
+                Text="{Binding Path=TextoDeLaPregunta}"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"/>
+            
+        </Border>
+        <ImageButton
+            Grid.Row="0"
+            Grid.Column="2"
+            Source="arrow_right_nav_icon.png"
+            BackgroundColor="Beige"
+            Command="{Binding Path=PreguntaAnteriorCommand}"/>
+
+        <HorizontalStackLayout
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Label
+                Text="{Binding Path=Resultado}"
+                FontSize="Medium"
+                FontAttributes="Bold"/>
+            
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Spacing="36">
+
+            <Button
+                Text="Cierto"
+                FontSize="Medium"
+                Command="{Binding Path=VerificaRespuestaEsCiertoCommand}"
+                MinimumWidthRequest="100"/>
+            <Button
+                Text="Falso"
+                FontSize="Medium"
+                Command="{Binding Path=VerificaRespuestaEsFalsoCommand}"
+                MinimumWidthRequest="100"/>
+
+        </HorizontalStackLayout>
+
+    </Grid>
+
+</ContentPage>
